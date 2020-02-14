@@ -23,32 +23,34 @@ export class AppComponent implements OnInit {
   trained_model = {};
   loadingdata={};
   tempInCelsius = 70;
-  demo_1_div_display: boolean;
-  demo_1_graph = { data: [], layout: {} };
-  demo_1_loadingdata = false;
-  
+ // demo_1_div_display: boolean;
+ //demo_1_graph = { data: [], layout: {} };
+ // demo_1_loadingdata = false;
   public data: any;
   public layout: any;
-
  // nanoNeuron = new NanoNeuron(w, b);
-  
  constructor(private httpClient: HttpClient) {}
     ngOnInit()
     {
       const w = Math.random();
-      const b = Math.random(); 
-      console.log('nano-neuron Ranondam value of W:',w);
-      console.log('nano-neuron Ranondam value of B:',b)
-      this.NanoNeuron(w,b);
-      console.log('predict', this.NanoNeuron(w,b));
+       const b = Math.random(); 
+        console.log('nano-neuron Ranondam value of W:',w);
+         console.log('nano-neuron Ranondam value of B:',b)
+          this.generatedatasets(console);
+           console.log('generateddatasets', this.generatedatasets(console))
+            this.NanoNeuron(w,b);
+             console.log('predict', this.NanoNeuron(w,b));
       this.celsiusToFahrenheit(console);
       console.log('celsiusToFahrenheit',this.celsiusToFahrenheit(console));
+      console.log('forward propogation',this.forwardPropagation)
     } 
+    /*
     generateData(newValue)
      { 
        this.datasets.push(newValue);
        console.log('value pushed:',this.datasets)
      }
+   */
 
     NanoNeuron(w, b)
      {
@@ -76,11 +78,11 @@ export class AppComponent implements OnInit {
        this.xTrain.push(Xfield);
         console.log('value pushed xtrain',this.xTrain);
          const yTrain = [];
-          console.log('yTrain value is:',yTrain)
            for (let x = 0; x < xTrain[x]; x += 1) {
              const y =this. celsiusToFahrenheit(x);
               xTrain.push(x);
                yTrain.push(y);
+               console.log('yTrain value is:',yTrain)
                 console.log('value of xtrain field',xTrain[x])
        }
                  const xTest = [];
@@ -107,7 +109,7 @@ export class AppComponent implements OnInit {
              for (let i = 0; i < m; i += 1) {
                const prediction = nanoNeuron.predict(xTrain[i]);
                  cost += predictionCost(yTrain[i], prediction);
-        //  console.log('cost1',cost)
+         console.log('cost1',cost)
                  predictions.push(prediction);
                    console.log('prediction forward' ,prediction    )
         
@@ -146,6 +148,7 @@ export class AppComponent implements OnInit {
              costHistory.push(cost);
               const [dW, dB] = this.backwardPropagation(predictions, xTrain, yTrain);
                nanoNeuron.w += alpha * dW;
+               console.log('alpha value is:',alpha)
                 console.log('nanoNeuron dw',nanoNeuron.w)
                  nanoNeuron.b += alpha * dB;
                   console.log('nanoNeuron dB',nanoNeuron.b)
