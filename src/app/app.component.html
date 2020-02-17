@@ -22,13 +22,15 @@
             <h1>Try It</h1>
               <div  appearance="outline">
                <label>Generate Dataset</label>
-                <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
+               <!-- <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
+                generatedatasets(input.value); input.value=''"> -->
+               <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
                 generatedatasets(input.value); input.value=''">
            </div>
            <div appearance="outline">
             <label> SetEpochs</label>
-             <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
-             trainModel(input.value); input.value=''">
+            <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
+              trainModel(input.value); input.value=''">
            </div>
     <mat-form-field appearance="outline">
      <mat-label></mat-label>
