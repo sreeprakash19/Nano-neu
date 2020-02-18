@@ -22,11 +22,11 @@
             <h1>Try It</h1>
               <div  appearance="outline">
                <label>Generate Dataset</label>
-               <!-- <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
+                <!-- <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
                 generatedatasets(input.value); input.value=''"> -->
-               <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
+                <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
                 generatedatasets(input.value); input.value=''">
-           </div>
+             </div>
            <div appearance="outline">
             <label> SetEpochs</label>
             <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
@@ -38,7 +38,7 @@
     </mat-form-field>
      <div>
          <div style="float:left">
-              <button mat-raised-button color="primary" (click)="fetchdata()">Fetch Data</button>
+           <button mat-raised-button color="primary" (click)="fetchdata()">Fetch Data</button>
          </div>
        </div>
      </div>
@@ -48,9 +48,9 @@
 </mat-card>
 <div>
  <h1>loaded data</h1>
- <plotly-plot [data]="graph.data" [layout]="graph.layout" 
+  <plotly-plot [data]="graph.data" [layout]="graph.layout" 
        [useResizeHandler]="true" [style]="{position: 'relative', width: '100%', height: '100%'}">
- </plotly-plot>
+  </plotly-plot>
 </div>
 <div>
  <h3>predicted data</h3>

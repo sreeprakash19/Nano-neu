@@ -109,6 +109,7 @@ import {
     MatTooltipModule,
     MatTreeModule
   ],
+
   exports: [
 
     BidiModule,
