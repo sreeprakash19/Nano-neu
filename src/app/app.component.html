@@ -27,20 +27,31 @@
                 <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
                 generatedatasets(input.value); input.value=''">
              </div>
+           
+   <div>
+    <input #epoc
+    (keyup.enter)="addepochs(epoc.value)"
+    (blur)="addepochs(epoc.value); epoc.value='' ">
+    <button (click)="addepochs(epoc.value)">Add</button>
+   </div>
+           <!--
            <div appearance="outline">
-            <label> SetEpochs</label>
+            <label> Train Model</label>
             <input type="number"  id="rec4" #input class="form-control"   placeholder="a number between (1-100)" (change)="
-              trainModel(input.value); input.value=''">
+            trainModel(input.value); input.value=''">
            </div>
+           -->
     <mat-form-field appearance="outline">
      <mat-label></mat-label>
        <input type="number" matInput placeholder="" >
     </mat-form-field>
-     <div>
+   
+    <div>
          <div style="float:left">
-           <button mat-raised-button color="primary" (click)="fetchdata()">Fetch Data</button>
+           <button mat-raised-button color="primary" (click)="  trainModel(input.value)">Fetch Data</button>
          </div>
        </div>
+   
      </div>
    </div>
 </div>
