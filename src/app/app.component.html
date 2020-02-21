@@ -29,10 +29,8 @@
              </div>
            
    <div>
-    <input #epoc
-    (keyup.enter)="addepochs(epoc.value)"
-    (blur)="addepochs(epoc.value); epoc.value='' ">
-    <button (click)="addepochs(epoc.value)">Add</button>
+     <label>Set Epochs</label>
+    <input #epoc (keyup.enter)="addepochs(epoc.value)" (blur)="addepochs(epoc.value); epoc.value='' ">
    </div>
            <!--
            <div appearance="outline">
@@ -45,7 +43,6 @@
      <mat-label></mat-label>
        <input type="number" matInput placeholder="" >
     </mat-form-field>
-   
     <div>
          <div style="float:left">
            <button mat-raised-button color="primary" (click)="  trainModel(input.value)">Fetch Data</button>

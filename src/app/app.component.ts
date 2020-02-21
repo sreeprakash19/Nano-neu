@@ -7,50 +7,31 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
   title = 'Nano-Neuron';
-  epochs=[];
-  eeppch=[];
-  predict;
-  alpha = 0.0005;
-  datasets=[];
-  XTrain=[];
-  NanoNeurons={}
-  trained_model = {};
-  loadingdata={};
-  tempInCelsius = 70;
-  public data: any;
-  public layout: any;
-  nanoNeuron;
-  epochss = [];
 
   constructor(private httpClient: HttpClient) {}
-  
   ngOnInit()
    {
-    const w = Math.random();
-     const b = Math.random(); 
+     const w = Math.random();
+      const b = Math.random(); 
        console.log('nano-neuron Ranondam value of W:',w);
         console.log('nano-neuron Ranondam value of B:',b)
-     //  this.generatedatasets(console);
-    //    console.log('generateddatasets', this.generatedatasets(console))
-   //      this.NanoNeuron(w,b);
-  //        console.log('predict', this.NanoNeuron(w,b));
              this.celsiusToFahrenheit(console);
               console.log('celsiusToFahrenheit',this.celsiusToFahrenheit(console));
 //             console.log('forward propogation',this.forwardPropagation);
-  } 
-  addepochs(epoc: number) {
-    if (epoc) {
-      this.epochss.push(epoc);
-      console.log('epochs added',epoc);
+    } 
+   addepochs(epochs) {
+    if (epochs) {
+      this.epochss.push(epochs);
+       console.log('epochs  value is',epochs);
     }
   }
   NanoNeuron(w, b)
    {
-    this.w = w;
-     this.b = b;
+      w = w;
+      b = b;
       this.predict = (x) => {
        console.log('predict value:',x);
-        return x * this.w +this.b;
+        return x * w +b;
     }
     }   
   celsiusToFahrenheit(c) 
@@ -61,8 +42,9 @@ export class AppComponent implements OnInit{
        return f;
     }
      // const [xTrain, yTrain, xTest, yTest] = generateDataSets();
-  generatedatasets( Xfield)
+    generatedatasets( Xfield)
    {
+    
      const xTrain = [];
       this.XTrain.push(Xfield);
        console.log('value pushed xtrain',Xfield);
@@ -120,18 +102,14 @@ export class AppComponent implements OnInit{
                 console.log('AVERAGE DB',  dB )
                  return [dW, dB];
   }
- 
+
    async trainModel({model,epochs, alpha, xTrain, yTrain})
-    {
-          epochs=[];
-          //let nanoNeuron;
-           //this.eeppch.push(epochs);
-             console.log(' epochs value is:',epochs);
+     {
               const costHistory = [];
                for (let epoch = 0; epoch <epochs; epoch += 1){
                 const [predictions, cost] = this.forwardPropagation(model, xTrain, yTrain);
                  costHistory.push(cost);
-                  console.log('cost history',  costHistory.push(cost))
+                  console.log('cost history',cost);
                    const [dW, dB] = this.backwardPropagation(predictions, xTrain, yTrain);
                     this.nanoNeuron.w += alpha * dW;
                      console.log('alpha value is:',alpha)
@@ -143,17 +121,12 @@ export class AppComponent implements OnInit{
                            console.log('trainmodel',this.trainModel({model, epochs, alpha, xTrain, yTrain}))
                             return costHistory;
        }
-             w=Math.random()
-              b = Math.random();
-      fetchdata()
-      {
-          this.graph;
-           this.graphs;
-      }
+       
+     
            //test
       public graph =
       {
-        data: [{ x: [1, 2, 3], y: [2, 5, 3],  }],
+        data: [{ x: [1, 2, 3,5], y: [2, 5, 3,2,5],  }],
           layout: {autosize: true, title: 'loaded data'},        
       };
       public graphs = 
