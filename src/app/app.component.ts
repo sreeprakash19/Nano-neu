@@ -7,6 +7,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
   title = 'Nano-Neuron';
+  epochs=[];
+  eeppch=[];
+  predict;
+  alpha = 0.0005;
+  datasets=[];
+  XTrain=[];
+  NanoNeurons={}
+  trained_model = {};
+  loadingdata={};
+  tempInCelsius = 70;
+  public data: any;
+  public layout: any;
+  nanoNeuron;
+  epochss = [];
 
   constructor(private httpClient: HttpClient) {}
   ngOnInit()
